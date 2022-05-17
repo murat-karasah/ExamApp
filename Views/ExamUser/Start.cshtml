@@ -1,0 +1,41 @@
+﻿@model IEnumerable<TimExamCase.Data.Entities.Question>
+
+@{
+    ViewData["Title"] = "Start";
+}
+
+<h1>Start</h1>
+ <form asp-action="End" method="get">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <input type="text" hidden name=examId value=@ViewBag.ExamId />
+@foreach (var item in Model)
+{
+      <hr />
+    <p>@item.QuestionTest</p>
+ 
+
+
+       
+
+    <input itemid=@item.QuestionID type="radio" name="@item.QuestionID" value="A" />
+     <label for="a">@item.OptionA</label><br>
+
+    <input itemid=@item.QuestionID type="radio" name="@item.QuestionID" value="B" />
+         <label for="b">@item.OptionB</label><br>
+
+    <input itemid=@item.QuestionID type="radio" name="@item.QuestionID" value="C" />
+         <label for="c">@item.OptionC</label><br>
+
+    <input itemid=@item.QuestionID type="radio" name="@item.QuestionID" value="D" />
+         <label for="d">@item.OptionD</label><br>
+
+          <hr />
+}
+ </div>
+            <div class="form-group">
+                <input type="submit" value="Sınavı Bitir" class="btn btn-primary" />
+            </div>
+        </form>
+
+ 

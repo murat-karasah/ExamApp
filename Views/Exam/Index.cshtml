@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TimExamCase.Data.Entities.Exam>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@ViewBag.Message
+
+
+<p>
+    <a asp-action="CreateExam">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ExamName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExamName)
+            </td>
+            <td>
+                 <a asp-action="CreateQuestion" asp-route-id="@item.ExamID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ExamID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+ 
+
+ 

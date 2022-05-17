@@ -1,0 +1,110 @@
+﻿@using TimExamCase.Data.Entities
+@model dynamic
+
+
+<h3>Puan: @ViewBag.Puan</h3>
+ @foreach (Question question in Model.Questions)
+    {
+
+        @foreach (AnswerModel item in Model.Answer)
+        {
+            if (item.AnswerId==question.QuestionID)
+            {
+               @if (item.StatuOption==true)
+               {
+                <div style="background-color: green">
+                      <p>@question.QuestionTest</p>
+                                                              <ul style="list-style-type: upper-latin;">
+
+                                                   @{
+                                switch(item.SelectOption)
+                                {
+                                    case "A":
+                                        // Use the text block below to separate html elements from code
+                                         <li style="text-decoration: underline">@question.OptionA</li>
+                                         <li>@question.OptionB</li>
+                                         <li>@question.OptionC</li>
+                                         <li>@question.OptionD</li>
+                                    
+                                        break;  // Always break each case
+                                    case "B":
+                                          <li>@question.OptionA</li>
+                                         <li style="text-decoration: underline">@question.OptionB</li>
+                                         <li>@question.OptionC</li>
+                                         <li>@question.OptionD</li>
+                                         break;
+                                         case "C":
+                                          <li>@question.OptionA</li>
+                                         <li>@question.OptionB</li>
+                                         <li style="text-decoration: underline">@question.OptionC</li>
+                                         <li>@question.OptionD</li>
+                                         break;
+                                         case "D":
+                                          <li>@question.OptionA</li>
+                                         <li>@question.OptionB</li>
+                                         <li>@question.OptionC</li>
+                                         <li style="text-decoration: underline">@question.OptionD</li>
+                                         break;
+                                                       
+                                }
+                            }
+                     
+                    </ul>
+               
+                   <hr />
+                   </div>
+            }
+            else
+            {
+                                <div style="background-color: red">
+                                                  <p>@question.QuestionTest</p>
+                    <ul style="list-style-type: upper-latin;">
+
+                                                   @{
+                                switch(item.SelectOption)
+                                {
+                                    case "A":
+                                        // Use the text block below to separate html elements from code
+                                          <li style="text-decoration: underline">@question.OptionA</li>
+                                         <li>@question.OptionB</li>
+                                         <li>@question.OptionC</li>
+                                         <li>@question.OptionD</li>
+                                         break;  // Always break each case
+                                    case "B":
+                                          <li>@question.OptionA</li>
+                                         <li style="text-decoration: underline">@question.OptionB</li>
+                                         <li>@question.OptionC</li>
+                                         <li>@question.OptionD</li>
+                                         break;
+                                         case "C":
+                                          <li>@question.OptionA</li>
+                                         <li>@question.OptionB</li>
+                                         <li style="text-decoration: underline">@question.OptionC</li>
+                                         <li>@question.OptionD</li>
+                                         break;
+                                         case "D":
+                                          <li>@question.OptionA</li>
+                                         <li>@question.OptionB</li>
+                                         <li>@question.OptionC</li>
+                                         <li style="text-decoration: underline">@question.OptionD</li>
+                                         break;
+                                                       
+                                }
+                            }
+                     
+                                                        </ul>
+
+               
+                   <hr />
+                                  <h3>Doğru Cevap : @question.TrueOption</h3>
+
+                   </div>
+  
+            }
+          
+            }
+        }
+
+
+      
+    }

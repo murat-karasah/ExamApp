@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TimExamCase.Data.Entities.Question>
+
+@{
+    ViewData["Title"] = "Soru Ekle";
+}
+
+<p>
+     <a asp-controller="Question" asp-action="CreateQuestion" asp-route-id="@ViewBag.ExamId">Yeni Soru Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionTest)
+            </th>
+         </tr>
+    </thead>
+    <tbody>
+
+@if (Model!=null)
+{
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionTest)
+            </td>
+             
+        </tr>
+}
+
+}
+    </tbody>
+</table>
+ 
+
+ 
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
